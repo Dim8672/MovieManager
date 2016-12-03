@@ -16,10 +16,18 @@ public class Person {
     private String lastName;
     private List<Movie> movies;
 
+    /*
+    * Return a new Instance of Person
+    */
     public Person() {
-        movies = new ArrayList<>();
+        this.movies = new ArrayList<>();
     }
-
+    /*
+    * Parameter constructor for this
+    * @param id Id of this
+    * @param firstName firstName of this
+    * @param lastName lastName of this
+    */
     public Person(Long id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
@@ -58,13 +66,21 @@ public class Person {
     public void setMovies(List<Movie> movies) {
         this.movies = movies;
     }
-
+    /*
+    * Adding a Movie to this and adding a Person to the Movie
+    * @param movie the movie which will be added and which will have one more Person who watched it
+    */
     public void addMovie(Movie movie) throws UniqueException, NullParameterException {
         this.movies.add(movie);
+        movie.addPerson(this);
     }
-
+    /*
+    * Remove a Movie to this and removing a Person to the Movie
+    * @param movie the movie which will be removed and which will have one less Person who watched it
+    */
     public void removeMovie(Movie movie) {
         this.movies.remove(movie);
+        movie.removePerson(this);
     }
 
 }

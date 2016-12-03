@@ -15,7 +15,7 @@ public class Movie {
     private List<Person> people;
 
     public Movie() {
-
+        this.people = new ArrayList<>();
     }
 
     public Movie(Long id, String name, String producer) {
@@ -51,6 +51,14 @@ public class Movie {
 
     public List<Person> getPeople() {
         return people;
+    }
+    
+    public void addPerson(Person person){
+        this.people.add(person);
+    }
+    
+    public void removePerson(Person person){
+        this.people.remove(person);
     }
 
 }
