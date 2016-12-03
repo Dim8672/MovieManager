@@ -22,7 +22,6 @@ public class Movie {
         this.id = id;
         this.name = name;
         this.producer = producer;
-        this.people = people;
         this.people = new ArrayList<>();
     }
 
