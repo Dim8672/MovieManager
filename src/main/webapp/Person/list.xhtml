@@ -15,10 +15,25 @@
                 <h1> #{msg.personListTitle} </h1> 
             </ui:define>
             <ui:define name="content">
-                <h2> #{msg.personListTitle} </h2>
                 <label> #{msg.id} #{personBean.currentPerson.id} </label>
                 <label> #{msg.firstName} #{personBean.currentPerson.firstName} </label>
                 <label> #{msg.lastName} #{personBean.currentPerson.lastName} </label>
+                <h:button value="#{msg.editSomeone}"/>
+                <h2> #{msg.personListTitle} </h2>
+                <h:dataTable value="#{personBean.currentPerson.movies}" var="movies">
+                    <h:column>
+                        <f:facet name="header">#{msg.id} </f:facet>
+                            #{movies.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msg.movieName}</f:facet>
+                            #{movies.name}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msg.producerName}</f:facet>
+                            #{movies.producer}
+                    </h:column>                  
+                </h:dataTable>
             </ui:define>
         </ui:composition>
     </h:body>
