@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <f:metadata>
+        <f:viewParam name="id" value="#{personBean.currentPersonId}"/>
+        <f:viewAction action="#{personBean.initCurrentPerson}"/>
+    </f:metadata>
+    <h:body>
+        <ui:composition template="/Template/template.xhtml">
+            <ui:define name="title"> #{msg.personListTitle} </ui:define>
+            <ui:define name="top"> 
+                <h1> #{msg.personEditTitle} </h1> 
+            </ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <label>#{msg.id}</label>
+                    <h:outputText title="#{msg.id}" 
+                                 value="#{personBean.currentPerson.id}">
+                    </h:outputText><br/>
+                    <label>#{msg.firstName}</label>
+                    <h:inputText title="#{msg.firstName}" 
+                                 value="#{personBean.currentPerson.firstName}" required="true">
+                    </h:inputText><br/>
+                    <label>#{msg.lastName}</label>
+                    <h:inputText title="#{msg.lastName}" 
+                                 value="#{personBean.currentPerson.lastName}" required="true">
+                    </h:inputText><br/>
+                  <h:button value="#{msg.Reinitilalise}" outcome="edit.xhtml">
+                            <f:param name="id" value="#{personBean.currentPersonId}" disable="#{empty personBean.currentPersonId}"/>
+                  </h:button>
+                    <h:commandButton value="#{msg.validate}" action="#{personBean.save}">
+                        <f:param name="id" value="#{personBean.currentPersonId}" disable="#{empty personBean.currentPersonId}"/>
+                    </h:commandButton>
+                              
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

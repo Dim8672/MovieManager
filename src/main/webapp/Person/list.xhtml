@@ -15,10 +15,12 @@
                 <h1> #{msg.personListTitle} </h1> 
             </ui:define>
             <ui:define name="content">
-                <label> #{msg.id} #{personBean.currentPerson.id} </label>
-                <label> #{msg.firstName} #{personBean.currentPerson.firstName} </label>
-                <label> #{msg.lastName} #{personBean.currentPerson.lastName} </label>
-                <h:button value="#{msg.editSomeone}"/>
+                    <label> #{msg.id} #{personBean.currentPerson.id} </label><br/>
+                    <label> #{msg.firstName} #{personBean.currentPerson.firstName} </label><br/>
+                    <label> #{msg.lastName} #{personBean.currentPerson.lastName} </label><br/><br/>
+                    <h:button value="#{msg.editSomeone}" outcome="edit.xhtml">
+                        <f:param name="id" value="#{personBean.currentPersonId}"/>
+                    </h:button>
                 <h2> #{msg.personListTitle} </h2>
                 <h:dataTable value="#{personBean.currentPerson.movies}" var="movies">
                     <h:column>
