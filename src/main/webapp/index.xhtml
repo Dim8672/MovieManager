@@ -39,7 +39,7 @@
                     </h:column>
                 </h:dataTable>
                 <h:form>
-                    <h:commandButton value="#{msg.addSomeone}" action="edit"/>
+                    <h:commandButton value="#{msg.addSomeone}" action="Person/edit"/>
                 </h:form>
                 <h2> #{msg.listMovies} </h2>
                 <h:dataTable value="#{movieManagerBean.moviesList}" var="movieList">
@@ -60,6 +60,9 @@
                             #{movieList.people.size()}
                     </h:column>
                 </h:dataTable>
+                <h:form>
+                    <h:commandButton value="#{msg.addSomeone}" action="Movie/edit"/>
+                </h:form>
             </ui:define>
         </ui:composition>
     </h:body>
