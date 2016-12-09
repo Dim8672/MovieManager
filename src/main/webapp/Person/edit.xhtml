@@ -5,8 +5,8 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <f:metadata>
-        <f:viewParam name="id" value="#{personBean.currentPersonId}"/>
-        <f:viewAction action="#{personBean.initCurrentPerson}"/>
+       <f:viewParam name="id" value="#{personBean.currentPersonId}"/>
+       <f:viewAction action="#{personBean.initCurrentPerson}"/>
     </f:metadata>
     <h:body>
         <ui:composition template="/Template/template.xhtml">
@@ -18,7 +18,8 @@
                 <h:form>
                     <label>#{msg.id}</label>
                     <h:outputText title="#{msg.id}" 
-                                 value="#{personBean.currentPerson.id}">
+                                 value="#{personBean.currentPerson.id}"
+                                 rendered="#{personBean.currentPerson.id != null}">
                     </h:outputText><br/>
                     <label>#{msg.firstName}</label>
                     <h:inputText title="#{msg.firstName}" 
@@ -32,9 +33,8 @@
                             <f:param name="id" value="#{personBean.currentPersonId}" disable="#{empty personBean.currentPersonId}"/>
                   </h:button>
                     <h:commandButton value="#{msg.validate}" action="#{personBean.save}">
-                        <f:param name="id" value="#{personBean.currentPersonId}" disable="#{empty personBean.currentPersonId}"/>
-                    </h:commandButton>
-                              
+                        <f:param name="id" value="#{personBean.currentPersonId}"/>
+                    </h:commandButton>                              
                 </h:form>
             </ui:define>
         </ui:composition>

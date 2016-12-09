@@ -62,7 +62,10 @@ public class PersonBean implements Serializable {
         } catch (NullParameterException ex) {
             Logger.getLogger(PersonBean.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return "list.xhtml?faces-redirect=true&id=" + currentPersonId;
+//        if(currentPersonId != null){
+//            return "list.xhtml?faces-redirect=true&id=" + currentPerson.getId();
+//        }
+        return "/index.xhtml?faces-redirect=true";
     }
    
 }

@@ -39,7 +39,7 @@
                     </h:column>
                 </h:dataTable>
                 <h:form>
-                    <h:commandButton value="#{msg.addSomeone}" action="Person/edit"/>
+                    <h:commandButton value="#{msg.addSomeone}" action="Person/edit.xhtml?faces-redirect=true"/>
                 </h:form>
                 <h2> #{msg.listMovies} </h2>
                 <h:dataTable value="#{movieManagerBean.moviesList}" var="movieList">
