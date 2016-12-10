@@ -41,6 +41,17 @@
                         </h:form>
                     </h:column>
                 </h:dataTable>
+                <h:form>
+                    <h:outputText value="#{msg.addingMovieToList}" /> 
+                    <h:selectOneMenu id="lovMovies" value="#{personBean.movieSelect}">
+                        <f:converter binding ="#{movieLOVConverter}"/>
+                        <f:selectItem itemLabel="#{msg.chooseMovie}" />
+                        <f:selectItems value="#{personBean.moviesMissing}" var="movieMissing" itemLabel="#{movieMissing.name}" itemValue="#{movieMissing}"/>
+                    </h:selectOneMenu>
+                    <h:commandButton value="#{msg.addingMovieToList}" action="#{personBean.addMovie(personBean.movieSelect)}" />
+                </h:form>
+                <h:button value="#{msg.backToFirstPage}" outcome="/index.xhtml?faces-redirect=true">
+                </h:button>
             </ui:define>
         </ui:composition>
     </h:body>
