@@ -15,12 +15,12 @@
                 <h1> #{msg.personListTitle} </h1> 
             </ui:define>
             <ui:define name="content">
-                    <label> #{msg.id} #{personBean.currentPerson.id} </label><br/>
-                    <label> #{msg.firstName} #{personBean.currentPerson.firstName} </label><br/>
-                    <label> #{msg.lastName} #{personBean.currentPerson.lastName} </label><br/><br/>
-                    <h:button value="#{msg.editSomeone}" outcome="edit.xhtml">
-                        <f:param name="id" value="#{personBean.currentPersonId}"/>
-                    </h:button>
+                <label> #{msg.id} #{personBean.currentPerson.id} </label><br/>
+                <label> #{msg.firstName} #{personBean.currentPerson.firstName} </label><br/>
+                <label> #{msg.lastName} #{personBean.currentPerson.lastName} </label><br/><br/>
+                <h:button value="#{msg.editSomeone}" outcome="edit.xhtml">
+                    <f:param name="id" value="#{personBean.currentPersonId}"/>
+                </h:button>
                 <h2> #{msg.personListTitle} </h2>
                 <h:dataTable value="#{personBean.currentPerson.movies}" var="movies">
                     <h:column>
@@ -35,7 +35,11 @@
                         <f:facet name="header">#{msg.producerName}</f:facet>
                             #{movies.producer}
                     </h:column>
-                    <h:button ou
+                    <h:column>
+                        <h:form>
+                            <h:commandButton value="#{msg.deleteMovie}" action="#{personBean.deleteMovie(movies)}" />
+                        </h:form>
+                    </h:column>
                 </h:dataTable>
             </ui:define>
         </ui:composition>

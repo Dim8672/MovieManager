@@ -5,7 +5,9 @@
  */
 package ch.hearc.ig.odi.moviemanager.beans;
 
+import ch.hearc.ig.odi.moviemanager.business.Movie;
 import ch.hearc.ig.odi.moviemanager.business.Person;
+import ch.hearc.ig.odi.moviemanager.exception.InvalidParameterException;
 import ch.hearc.ig.odi.moviemanager.exception.NullParameterException;
 import ch.hearc.ig.odi.moviemanager.service.Services;
 import java.io.Serializable;
@@ -56,15 +58,28 @@ public class PersonBean implements Serializable {
         this.currentPersonId = currentPersonId;
     }
     
+    /*
+    * Delete a movie watched by the current Person
+    * @param movie current movie on the table
+    */
+    public String deleteMovie(Movie movie){
+        try {
+            services.removeMovieFromPerson(currentPerson, movie);
+        } catch (NullParameterException | InvalidParameterException ex) {
+            Logger.getLogger(PersonBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "list.xhtml?faces-redirect=true&id=" + currentPerson.getId();
+    }
+    
+    /*
+    * Save a new Person
+    */
     public String save(){
         try {
             services.savePerson(currentPerson);
         } catch (NullParameterException ex) {
             Logger.getLogger(PersonBean.class.getName()).log(Level.SEVERE, null, ex);
         }
-//        if(currentPersonId != null){
-//            return "list.xhtml?faces-redirect=true&id=" + currentPerson.getId();
-//        }
         return "/index.xhtml?faces-redirect=true";
     }
    
