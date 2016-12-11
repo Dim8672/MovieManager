@@ -54,7 +54,7 @@ public class MovieManagerBean {
         if(dest.equals("addMovie")){
             return "addMovie";
         }
-        return "/index.xhtml";
+        return "Index";
     }
     
        

@@ -1,7 +1,7 @@
 <faces-config version="2.2">
-              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
     <application>
         <resource-bundle>
             <base-name>Messages_Fr</base-name>
@@ -38,6 +38,12 @@
         <navigation-case>
             <from-outcome>detailPerson</from-outcome>
             <to-view-id>/Person/detail.xhtml</to-view-id>
+            <redirect>
+                <view-param>
+                    <name>id</name>
+                    <value>#{personBean.currentPersonId}</value>
+                </view-param>
+            </redirect>
         </navigation-case>
         <navigation-case>
             <from-outcome>detailMovie</from-outcome>

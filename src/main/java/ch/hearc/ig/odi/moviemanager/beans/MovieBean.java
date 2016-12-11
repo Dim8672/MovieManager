@@ -67,7 +67,6 @@ public class MovieBean implements Serializable {
         } catch (NullParameterException ex) {
             Logger.getLogger(PersonBean.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return "/index.xhtml?faces-redirect=true";
-    }
-      
+        return "Index";
+    }  
 }

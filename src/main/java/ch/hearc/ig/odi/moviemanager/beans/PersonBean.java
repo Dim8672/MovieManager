@@ -86,7 +86,8 @@ public class PersonBean implements Serializable {
         } catch (NullParameterException | InvalidParameterException ex) {
             Logger.getLogger(PersonBean.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return "list.xhtml?faces-redirect=true&id=" + currentPerson.getId();
+        // return "list.xhtml?faces-redirect=true&id=" + currentPerson.getId();
+        return "detailPerson";
     }
     /**
     * Adding a movie to the currentPerson
@@ -98,7 +99,8 @@ public class PersonBean implements Serializable {
         } catch (NullParameterException | UniqueException ex) {
             Logger.getLogger(PersonBean.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return "list.xhtml?faces-redirect=true&id=" + currentPerson.getId();
+       // return "list.xhtml?faces-redirect=true&id=" + currentPerson.getId();
+       return "detailPerson";
     }
     
     /**
