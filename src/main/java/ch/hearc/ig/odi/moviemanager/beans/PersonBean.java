@@ -94,7 +94,7 @@ public class PersonBean implements Serializable {
     /**
     * Delete a movie watched by the current Person
     * @param movie current movie on the table
-     * @return the person detail page
+    * @return the person detail page
     */
     public String deleteMovie(Movie movie){
         try {
@@ -108,7 +108,7 @@ public class PersonBean implements Serializable {
     /**
     * Adding a movie to the currentPerson
     * @param movie current movie to add
-     * @return the person detail page
+    * @return the person detail page
     */
     public String addMovie(Movie movie){
         try {
@@ -121,7 +121,7 @@ public class PersonBean implements Serializable {
     
     /**
     * Save a new Person
-     * @return the home page
+    * @return the home page
     */
     public String save(){
         try {

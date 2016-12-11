@@ -25,13 +25,13 @@ public class MovieManagerBean {
     private List<Person> peopleList;
     private List<Movie> moviesList;
     
-    /*
+    /**
     * Create a new Instance of MovieManagerBean
     */
     public MovieManagerBean() {
         
     }
-    /*
+    /**
     * Initialise the two main lists with values on the Service class
     */
     public void init(){
