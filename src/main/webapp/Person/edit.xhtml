@@ -5,22 +5,30 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <f:metadata>
-       <f:viewParam name="id" value="#{personBean.currentPersonId}"/>
-       <f:viewAction action="#{personBean.initCurrentPerson}"/>
+        <f:viewParam name="id" value="#{personBean.currentPersonId}"/>
+        <f:viewAction action="#{personBean.initCurrentPerson}"/>
     </f:metadata>
     <h:body>
         <ui:composition template="/Template/template.xhtml">
-            <ui:define name="title"> #{msg.personListTitle} </ui:define>
-            <ui:define name="top"> 
-                <h1> #{msg.personEditTitle} </h1> 
+            <ui:define name="title"> #{msg.personEditTitle2} </ui:define>
+            <ui:define name="top">
+                <a href="../Template/template.xhtml"></a>
+                <ui:fragment rendered="#{personBean.currentPersonId != null}">
+                    <h1> #{msg.personEditTitle2} </h1>
+                </ui:fragment>
+                <ui:fragment rendered="#{personBean.currentPersonId == null}">
+                    <h1> #{msg.personEditTitle} </h1>
+                </ui:fragment>
             </ui:define>
             <ui:define name="content">
                 <h:form>
-                    <label>#{msg.id}</label>
-                    <h:outputText title="#{msg.id}" 
-                                 value="#{personBean.currentPerson.id}"
-                                 rendered="#{personBean.currentPerson.id != null}">
-                    </h:outputText><br/>
+                    <h:panelGroup rendered="#{personBean.currentPersonId != null}">
+                        <label>#{msg.id}</label>
+                        <h:outputText title="#{msg.id}" 
+                                      value="#{personBean.currentPerson.id}">
+                        </h:outputText><br/>
+                    </h:panelGroup>
+
                     <label>#{msg.firstName}</label>
                     <h:inputText title="#{msg.firstName}" 
                                  value="#{personBean.currentPerson.firstName}" required="true">
@@ -29,9 +37,9 @@
                     <h:inputText title="#{msg.lastName}" 
                                  value="#{personBean.currentPerson.lastName}" required="true">
                     </h:inputText><br/>
-                  <h:button value="#{msg.Reinitilalise}" outcome="edit.xhtml">
-                            <f:param name="id" value="#{personBean.currentPersonId}" disable="#{empty personBean.currentPersonId}"/>
-                  </h:button>
+                    <h:button value="#{msg.Reinitilalise}" outcome="edit.xhtml">
+                        <f:param name="id" value="#{personBean.currentPersonId}" disable="#{empty personBean.currentPersonId}"/>
+                    </h:button>
                     <h:commandButton value="#{msg.validate}" action="#{personBean.save}">
                         <f:param name="id" value="#{personBean.currentPersonId}"/>
                     </h:commandButton>                              
