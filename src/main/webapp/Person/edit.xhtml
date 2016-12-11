@@ -33,9 +33,10 @@
                     <!-- showing the id or not according to the selected functionality -->
                     <h:panelGroup rendered="#{personBean.currentPersonId != null}">
                         <label>#{msg.id}</label>
-                        <h:outputText title="#{msg.id}" 
-                                      value="#{personBean.currentPerson.id}">
-                        </h:outputText><br/>
+                        <h:inputText title="#{msg.id}" 
+                                      value="#{personBean.currentPerson.id}"
+                                      disabled="true">
+                        </h:inputText><br/>
                     </h:panelGroup>
 
                     <label>#{msg.firstName}</label>

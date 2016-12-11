@@ -33,10 +33,10 @@
                     <!-- showing the id or not according to the selected functionality -->
                     <h:panelGroup rendered="#{movieBean.currentMovieId != null}">
                         <label>#{msg.id}</label>
-                        <h:outputText title="#{msg.id}" 
+                        <h:inputText title="#{msg.id}" 
                                       value="#{movieBean.currentMovie.id}"
-                                      rendered="#{movieBean.currentMovie.id != null}">
-                        </h:outputText><br/>
+                                      disabled="true">
+                        </h:inputText><br/>
                     </h:panelGroup>
                     <label>#{msg.movieName}</label>
                     <h:inputText title="#{msg.movieName}" 
