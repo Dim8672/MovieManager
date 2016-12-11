@@ -55,23 +55,38 @@ public class PersonBean implements Serializable {
         String uri = ((HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest()).getRequestURI();
         this.searchMoviesMissing();
     }
-
+    /**
+     * Getter for the currentPerson
+     * @return the currentPerson
+     */
     public Person getCurrentPerson() {
         return currentPerson;
     }
-
+    /**
+     * Getter for the currentPersonId
+     * @return the currentPersonId
+     */
     public Long getCurrentPersonId() {
         return currentPersonId;
     }
-
+    /**
+     * setter for the currentPersonId
+     * @param currentPersonId 
+     */
     public void setCurrentPersonId(Long currentPersonId) {
         this.currentPersonId = currentPersonId;
     }
-
+    /**
+     * getter for the movieSelect
+     * @return the movieSelect
+     */
     public Movie getMovieSelect() {
         return movieSelect;
     }
-
+    /**
+     * setter for the movieSelect
+     * @param movieSelect 
+     */
     public void setMovieSelect(Movie movieSelect) {
         this.movieSelect = movieSelect;
     }
@@ -79,6 +94,7 @@ public class PersonBean implements Serializable {
     /**
     * Delete a movie watched by the current Person
     * @param movie current movie on the table
+     * @return the person detail page
     */
     public String deleteMovie(Movie movie){
         try {
@@ -92,6 +108,7 @@ public class PersonBean implements Serializable {
     /**
     * Adding a movie to the currentPerson
     * @param movie current movie to add
+     * @return the person detail page
     */
     public String addMovie(Movie movie){
         try {
@@ -99,12 +116,12 @@ public class PersonBean implements Serializable {
         } catch (NullParameterException | UniqueException ex) {
             Logger.getLogger(PersonBean.class.getName()).log(Level.SEVERE, null, ex);
         }
-       // return "list.xhtml?faces-redirect=true&id=" + currentPerson.getId();
        return "detailPerson";
     }
     
     /**
     * Save a new Person
+     * @return the home page
     */
     public String save(){
         try {
@@ -128,7 +145,10 @@ public class PersonBean implements Serializable {
             }
         }
     }
-
+    /**
+     * getter for the MoviesMissing
+     * @return the array of Movies missing
+     */
     public ArrayList<Movie> getMoviesMissing() {
         return moviesMissing;
     }
