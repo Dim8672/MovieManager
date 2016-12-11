@@ -44,23 +44,38 @@ public class MovieBean implements Serializable {
         currentMovie = this.services.getMovieWithId(currentMovieId);
         }
     }
-
+    /**
+     * Getter for the currentMovie
+     * @return the currentMovie
+     */
     public Movie getCurrentMovie() {
         return currentMovie;
     }
-
+    /**
+     * Setter for the currentMovie
+     * @param currentMovie the parameter to set
+     */
     public void setCurrentMovie(Movie currentMovie) {
         this.currentMovie = currentMovie;
     }
-
+    /**
+     * Getter for the currentMovieId
+     * @return the currentMovieId
+     */
     public Long getCurrentMovieId() {
         return currentMovieId;
     }
-
+    /**
+     * Setter for then currentMovieId
+     * @param currentMovieId  the parameter to set
+     */
     public void setCurrentMovieId(Long currentMovieId) {
         this.currentMovieId = currentMovieId;
     }
-    
+    /**
+     * saving a new movie to the list of movies
+     * @return the home page
+     */
     public String save(){
         try {
             services.saveMovie(currentMovie);
