@@ -83,5 +83,15 @@ public class MovieBean implements Serializable {
             Logger.getLogger(PersonBean.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "Index";
-    }  
+    }
+    /**
+     * Setting the navigation of the next page
+     * @return a string that indicate the next page
+     */
+    public String nav(){
+        if(currentMovieId != null){
+            return "detailMovie";
+        }
+        return "Index";
+    }
 }

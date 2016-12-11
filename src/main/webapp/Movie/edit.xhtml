@@ -49,9 +49,9 @@
                     <h:button value="#{msg.Reinitilalise}" outcome="editMovie">
                         <f:param name="id" value="#{movieBean.currentMovieId}" disable="#{empty movieBean.currentMovieId}"/>
                     </h:button>
-                    <h:button value="#{msg.cancel}" outcome="detailMovie">
-                        <f:param name="id" value="#{movieBean.currentMovieId}" disable="#{empty movieBean.currentMovieId}"/>
-                    </h:button>
+                    <h:commandButton value="#{msg.cancel}" action="#{movieBean.nav()}" immediate="true">
+                        <f:param name="id" value="#{movieBean.currentMovieId}" disable="#{movieBean.currentMovieId == null}"/>
+                    </h:commandButton>
                     <h:commandButton value="#{msg.validate}" action="#{movieBean.save}">
                         <f:param name="id" value="#{movieBean.currentMovieId}"/>
                     </h:commandButton>                              
