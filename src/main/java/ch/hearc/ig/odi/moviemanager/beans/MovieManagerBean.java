@@ -47,5 +47,15 @@ public class MovieManagerBean {
         return moviesList;
     }
     
+    public String nav(String dest){
+        if(dest.equals("addPerson")){
+            return "addPerson";
+        }
+        if(dest.equals("addMovie")){
+            return "addMovie";
+        }
+        return "/index.xhtml";
+    }
+    
        
 }

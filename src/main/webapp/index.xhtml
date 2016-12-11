@@ -21,17 +21,21 @@
                 <h:dataTable value="#{movieManagerBean.peopleList}" var="peopleList">
                     <h:column>
                         <f:facet name="header">#{msg.id}</f:facet>
-                        <h:link outcome="Person/detail.xhtml" value="#{peopleList.id}">
+                        <h:link outcome="detailPerson" value="#{peopleList.id}">
                             <f:param name="id" value="#{peopleList.id}"/>
                         </h:link>
                     </h:column>
                     <h:column>
                         <f:facet name="header">#{msg.firstName}</f:facet>
-                            #{peopleList.firstName}
+                        <h:link outcome="detailPerson" value="#{peopleList.firstName}">
+                            <f:param name="id" value="#{peopleList.id}"/>
+                        </h:link>
                     </h:column>
                     <h:column>
                         <f:facet name="header">#{msg.lastName}</f:facet>
-                            #{peopleList.lastName}
+                        <h:link outcome="detailPerson" value="#{peopleList.lastName}">
+                            <f:param name="id" value="#{peopleList.id}"/>
+                        </h:link>
                     </h:column>
                     <h:column>
                         <f:facet name="header">#{msg.numberOfMovies}</f:facet>
@@ -39,7 +43,7 @@
                     </h:column>
                 </h:dataTable>
                 <h:form>
-                    <h:commandButton value="#{msg.addSomeone}" action="Person/edit.xhtml?faces-redirect=true"/>
+                    <h:commandButton value="#{msg.addSomeone}" action="#{movieManagerBean.nav('addPerson')}" immediate="true"/>
                 </h:form>
                 <h2> #{msg.listMovies} </h2>
                 <h:dataTable value="#{movieManagerBean.moviesList}" var="movieList">
@@ -63,7 +67,7 @@
                     </h:column>
                 </h:dataTable>
                 <h:form>
-                    <h:commandButton value="#{msg.addSomeone}" action="Movie/edit.xhtml?faces-redirect=true"/>
+                    <h:commandButton value="#{msg.addSomeone}" action="#{movieManagerBean.nav('addMovie')}"/>
                 </h:form>
             </ui:define>
         </ui:composition>

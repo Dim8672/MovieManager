@@ -39,7 +39,7 @@
                     </h:column>
                 </h:dataTable>
                 </h:panelGroup>
-                <h:panelGroup>
+                <h:panelGroup rendered="#{movieBean.currentMovie.people.size() == 0}">
                     <label> #{msg.noPeople} </label><br/>
                 </h:panelGroup>
                 <h:button value="#{msg.backToFirstPage}" outcome="/index.xhtml?faces-redirect=true">

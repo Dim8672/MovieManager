@@ -1,0 +1,33 @@
+<pretty-config xmlns="http://ocpsoft.org/schema/rewrite-config-prettyfaces" 
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+               xsi:schemaLocation="http://ocpsoft.org/schema/rewrite-config-prettyfaces
+                      http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
+    <url-mapping>
+        <pattern value=""/>
+        <view-id value="/faces/index.xhtml"/>
+    </url-mapping>
+    <url-mapping>
+        <pattern value="/Person/detail/#{id}"/>
+        <view-id value="/faces/Person/detail.xhtml"/>
+    </url-mapping>
+    <url-mapping>
+        <pattern value="/Person/editPerson.xhtml/#{id}" />
+        <view-id value="/faces/Person/edit.xhtml"/>
+    </url-mapping>
+    <url-mapping>
+        <pattern value="/Person/editPerson" />
+        <view-id value="/faces/Person/edit.xhtml"/>
+    </url-mapping>
+    <url-mapping>
+        <pattern value="/Movie/detail/#{id}" />
+        <view-id value="/faces/Movie/detail.xhtml"/>
+    </url-mapping>
+    <url-mapping>
+        <pattern value="/Movie/editMovie.xhtml/#{id}" />
+        <view-id value="/faces/Movie/edit.xhtml"/>
+    </url-mapping>
+    <url-mapping>
+        <pattern value="/Movie/editMovie" />
+        <view-id value="/faces/Movie/edit.xhtml"/>
+    </url-mapping>
+</pretty-config>
