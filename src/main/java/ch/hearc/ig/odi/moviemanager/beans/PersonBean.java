@@ -152,5 +152,15 @@ public class PersonBean implements Serializable {
     public ArrayList<Movie> getMoviesMissing() {
         return moviesMissing;
     }
+    /**
+     * Setting the navigation of the next page
+     * @return a string that indicate the next page
+     */
+    public String nav(){
+        if(currentPersonId != null){
+            return "detailPerson";
+        }
+        return "Index";
+    }
    
 }
