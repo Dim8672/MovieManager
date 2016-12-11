@@ -88,7 +88,10 @@ public class PersonBean implements Serializable {
         }
         return "list.xhtml?faces-redirect=true&id=" + currentPerson.getId();
     }
-    
+    /*
+    * Adding a movie to the currentPerson
+    * @param movie current movie to add
+    */
     public String addMovie(Movie movie){
         try {
             services.addMovieToPerson(currentPerson, movie);
@@ -110,6 +113,9 @@ public class PersonBean implements Serializable {
         return "/index.xhtml?faces-redirect=true";
     }
     
+    /*
+    * Searching the movies that the person didn't watched
+    */
     public void searchMoviesMissing(){
         List<Movie> allMovies = services.getMoviesList();
         List<Movie> moviesOfPerson = currentPerson.getMovies();
