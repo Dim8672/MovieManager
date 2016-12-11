@@ -49,6 +49,9 @@
                     <h:button value="#{msg.Reinitilalise}" outcome="editPerson">
                         <f:param name="id" value="#{personBean.currentPersonId}" disable="#{empty personBean.currentPersonId}"/>
                     </h:button>
+                    <h:button value="#{msg.cancel}" outcome="detailPerson">
+                        <f:param name="id" value="#{personBean.currentPersonId}" disable="#{empty personBean.currentPersonId}"/>
+                    </h:button>
                     <h:commandButton value="#{msg.validate}" action="#{personBean.save}">
                         <f:param name="id" value="#{personBean.currentPersonId}"/>
                     </h:commandButton>                              
