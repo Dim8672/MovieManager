@@ -10,9 +10,17 @@
     </f:metadata>
     <h:body>
         <ui:composition template="/Template/template.xhtml">
-            <ui:define name="title"> #{msg.personEditTitle2} </ui:define>
+            <!-- showing a different title according to the selected functionality -->
+            <ui:define name="title">
+                <ui:fragment rendered="#{personBean.currentPersonId != null}">
+                    #{msg.personEditTitle2}
+                </ui:fragment>
+                <ui:fragment rendered="#{personBean.currentPersonId == null}">
+                    #{msg.personEditTitle}
+                </ui:fragment>
+            </ui:define>
+            <!-- showing a different title according to the selected functionality -->
             <ui:define name="top">
-                <a href="../Template/template.xhtml"></a>
                 <ui:fragment rendered="#{personBean.currentPersonId != null}">
                     <h1> #{msg.personEditTitle2} </h1>
                 </ui:fragment>
@@ -22,6 +30,7 @@
             </ui:define>
             <ui:define name="content">
                 <h:form>
+                    <!-- showing a the id or not according to the selected functionality -->
                     <h:panelGroup rendered="#{personBean.currentPersonId != null}">
                         <label>#{msg.id}</label>
                         <h:outputText title="#{msg.id}" 
