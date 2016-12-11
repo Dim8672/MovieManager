@@ -6,8 +6,11 @@
 package ch.hearc.ig.odi.moviemanager.beans;
 
 import ch.hearc.ig.odi.moviemanager.business.Movie;
+import ch.hearc.ig.odi.moviemanager.exception.NullParameterException;
 import ch.hearc.ig.odi.moviemanager.service.Services;
 import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -37,8 +40,9 @@ public class MovieBean implements Serializable {
     public void initCurrentMovie(){
         if(currentMovieId == null){
             currentMovie = new Movie();
-        }
+        } else {
         currentMovie = this.services.getMovieWithId(currentMovieId);
+        }
     }
 
     public Movie getCurrentMovie() {
@@ -55,6 +59,15 @@ public class MovieBean implements Serializable {
 
     public void setCurrentMovieId(Long currentMovieId) {
         this.currentMovieId = currentMovieId;
+    }
+    
+    public String save(){
+        try {
+            services.saveMovie(currentMovie);
+        } catch (NullParameterException ex) {
+            Logger.getLogger(PersonBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "/index.xhtml?faces-redirect=true";
     }
       
 }
