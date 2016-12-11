@@ -38,15 +38,25 @@ public class MovieManagerBean {
         this.peopleList = services.getPeopleList();
         this.moviesList = services.getMoviesList();
     }
-
+    /**
+     * Getter for the peopleList
+     * @return all the people of the application
+     */
     public List<Person> getPeopleList() {
         return peopleList;
     }
-
+    /**
+     * Getter for the MoviesList
+     * @return all the movies of the application
+     */
     public List<Movie> getMoviesList() {
         return moviesList;
     }
-    
+    /**
+     * Setting the navigation of the next page
+     * @param dest the next destination
+     * @return a string that indicate the next page
+     */
     public String nav(String dest){
         if(dest.equals("addPerson")){
             return "addPerson";
