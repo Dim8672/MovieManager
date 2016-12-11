@@ -22,7 +22,9 @@
                     <f:param name="id" value="#{movieBean.currentMovieId}"/>
                 </h:button>
                 <h2> #{msg.detailMovieTitle} </h2>
-                <h:dataTable value="#{movieBean.currentMovie.people}" var="people">
+                <!-- showing the people who watched the movie or not according to the size of the array -->
+                <h:panelGroup rendered="#{movieBean.currentMovie.people.size() != 0}">
+                    <h:dataTable value="#{movieBean.currentMovie.people}" var="people">
                     <h:column>
                         <f:facet name="header">#{msg.id} </f:facet>
                             #{people.id}
@@ -36,6 +38,10 @@
                         #{people.firstName}
                     </h:column>
                 </h:dataTable>
+                </h:panelGroup>
+                <h:panelGroup>
+                    <label> #{msg.noPeople} </label><br/>
+                </h:panelGroup>
                 <h:button value="#{msg.backToFirstPage}" outcome="/index.xhtml?faces-redirect=true">
                 </h:button>
             </ui:define>
