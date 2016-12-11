@@ -46,7 +46,7 @@
                     <h:inputText title="#{msg.producerName}" 
                                  value="#{movieBean.currentMovie.producer}" required="true">
                     </h:inputText><br/>
-                    <h:button value="#{msg.Reinitilalise}" outcome="edit.xhtml">
+                    <h:button value="#{msg.Reinitilalise}" outcome="editMovie">
                         <f:param name="id" value="#{movieBean.currentMovieId}" disable="#{empty movieBean.currentMovieId}"/>
                     </h:button>
                     <h:commandButton value="#{msg.validate}" action="#{movieBean.save}">

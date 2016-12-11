@@ -14,7 +14,7 @@
     </application>
     
     <navigation-rule>
-        <from-view-id>/index.xhtml</from-view-id>
+        <from-view-id>*</from-view-id>
         <navigation-case>
             <from-outcome>addPerson</from-outcome>
             <to-view-id>/Person/edit.xhtml</to-view-id>
@@ -26,12 +26,26 @@
             <redirect/>
         </navigation-case>
         <navigation-case>
+            <from-outcome>editPerson</from-outcome>
+            <to-view-id>/Person/edit.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>editMovie</from-outcome>
+            <to-view-id>/Movie/edit.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
             <from-outcome>detailPerson</from-outcome>
             <to-view-id>/Person/detail.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>detailMovie</from-outcome>
             <to-view-id>/Movie/detail.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>Index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

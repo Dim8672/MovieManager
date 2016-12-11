@@ -18,7 +18,7 @@
                 <label> #{msg.id} #{movieBean.currentMovie.id} </label><br/>
                 <label> #{msg.movieName} #{movieBean.currentMovie.name} </label><br/>
                 <label> #{msg.movieProducer} #{movieBean.currentMovie.producer} </label><br/><br/>
-                <h:button value="#{msg.editMovie}" outcome="edit.xhtml">
+                <h:button value="#{msg.editMovie}" outcome="editMovie">
                     <f:param name="id" value="#{movieBean.currentMovieId}"/>
                 </h:button>
                 <h2> #{msg.detailMovieTitle} </h2>
@@ -27,22 +27,28 @@
                     <h:dataTable value="#{movieBean.currentMovie.people}" var="people">
                     <h:column>
                         <f:facet name="header">#{msg.id} </f:facet>
-                            #{people.id}
+                            <h:link outcome="detailPerson" value="#{people.id}">
+                            <f:param name="id" value="#{people.id}"/>
+                        </h:link>
                     </h:column>
                     <h:column>
                         <f:facet name="header">#{msg.firstName}</f:facet>
-                        #{people.lastName}
+                        <h:link outcome="detailPerson" value="#{people.firstName}">
+                            <f:param name="id" value="#{people.id}"/>
+                        </h:link>
                     </h:column>
                     <h:column>
                         <f:facet name="header">#{msg.lastName}</f:facet>
-                        #{people.firstName}
+                        <h:link outcome="detailPerson" value="#{people.lastName}">
+                            <f:param name="id" value="#{people.id}"/>
+                        </h:link>
                     </h:column>
                 </h:dataTable>
                 </h:panelGroup>
                 <h:panelGroup rendered="#{movieBean.currentMovie.people.size() == 0}">
                     <label> #{msg.noPeople} </label><br/>
                 </h:panelGroup>
-                <h:button value="#{msg.backToFirstPage}" outcome="/index.xhtml?faces-redirect=true">
+                <h:button value="#{msg.backToFirstPage}" outcome="Index">
                 </h:button>
             </ui:define>
         </ui:composition>

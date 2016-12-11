@@ -46,7 +46,7 @@
                     <h:inputText title="#{msg.lastName}" 
                                  value="#{personBean.currentPerson.lastName}" required="true">
                     </h:inputText><br/>
-                    <h:button value="#{msg.Reinitilalise}" outcome="edit.xhtml">
+                    <h:button value="#{msg.Reinitilalise}" outcome="editPerson">
                         <f:param name="id" value="#{personBean.currentPersonId}" disable="#{empty personBean.currentPersonId}"/>
                     </h:button>
                     <h:commandButton value="#{msg.validate}" action="#{personBean.save}">

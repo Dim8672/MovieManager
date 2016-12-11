@@ -18,30 +18,36 @@
                 <label> #{msg.id} #{personBean.currentPerson.id} </label><br/>
                 <label> #{msg.firstName} #{personBean.currentPerson.firstName} </label><br/>
                 <label> #{msg.lastName} #{personBean.currentPerson.lastName} </label><br/><br/>
-                <h:button value="#{msg.editSomeone}" outcome="edit.xhtml">
+                <h:button value="#{msg.editSomeone}" outcome="editPerson">
                     <f:param name="id" value="#{personBean.currentPersonId}"/>
                 </h:button>
                 <h2> #{msg.personListTitle} </h2>
                 <h:panelGroup rendered="#{personBean.currentPerson.movies.size() != 0}">
                     <h:dataTable value="#{personBean.currentPerson.movies}" var="movies">
-                    <h:column>
-                        <f:facet name="header">#{msg.id} </f:facet>
-                            #{movies.id}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">#{msg.movieName}</f:facet>
-                            #{movies.name}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">#{msg.producerName}</f:facet>
-                            #{movies.producer}
-                    </h:column>
-                    <h:column>
-                        <h:form>
-                            <h:commandButton value="#{msg.deleteMovie}" action="#{personBean.deleteMovie(movies)}" />
-                        </h:form>
-                    </h:column>
-                </h:dataTable>
+                        <h:column>
+                            <f:facet name="header">#{msg.id} </f:facet>
+                            <h:link outcome="detailMovie" value="#{movies.id}">
+                                <f:param name="id" value="#{movies.id}"/>
+                            </h:link>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">#{msg.movieName}</f:facet>
+                            <h:link outcome="detailMovie" value="#{movies.name}">
+                                <f:param name="id" value="#{movies.id}"/>
+                            </h:link>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">#{msg.producerName}</f:facet>
+                            <h:link outcome="detailMovie" value="#{movies.producer}">
+                                <f:param name="id" value="#{movies.id}"/>
+                            </h:link>
+                        </h:column>
+                        <h:column>
+                            <h:form>
+                                <h:commandButton value="#{msg.deleteMovie}" action="#{personBean.deleteMovie(movies)}" />
+                            </h:form>
+                        </h:column>
+                    </h:dataTable>
                 </h:panelGroup>
                 <!-- showing the movies watched or not according to the size of the array -->
                 <h:panelGroup rendered="#{personBean.currentPerson.movies.size() == 0}">
@@ -56,7 +62,7 @@
                     </h:selectOneMenu>
                     <h:commandButton value="#{msg.addingMovieToList}" action="#{personBean.addMovie(personBean.movieSelect)}" />
                 </h:form>
-                <h:button value="#{msg.backToFirstPage}" outcome="/index.xhtml?faces-redirect=true">
+                <h:button value="#{msg.backToFirstPage}" outcome="Index">
                 </h:button>
             </ui:define>
         </ui:composition>
