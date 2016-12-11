@@ -76,7 +76,7 @@ public class PersonBean implements Serializable {
         this.movieSelect = movieSelect;
     }
     
-    /*
+    /**
     * Delete a movie watched by the current Person
     * @param movie current movie on the table
     */
@@ -88,7 +88,7 @@ public class PersonBean implements Serializable {
         }
         return "list.xhtml?faces-redirect=true&id=" + currentPerson.getId();
     }
-    /*
+    /**
     * Adding a movie to the currentPerson
     * @param movie current movie to add
     */
@@ -101,7 +101,7 @@ public class PersonBean implements Serializable {
         return "list.xhtml?faces-redirect=true&id=" + currentPerson.getId();
     }
     
-    /*
+    /**
     * Save a new Person
     */
     public String save(){
@@ -113,7 +113,7 @@ public class PersonBean implements Serializable {
         return "/index.xhtml?faces-redirect=true";
     }
     
-    /*
+    /**
     * Searching the movies that the person didn't watched
     */
     public void searchMoviesMissing(){

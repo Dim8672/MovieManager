@@ -45,7 +45,9 @@
                 <h:dataTable value="#{movieManagerBean.moviesList}" var="movieList">
                     <h:column>
                         <f:facet name="header">#{msg.id} </f:facet>
-                            #{movieList.id}
+                        <h:link outcome="Movie/detail.xhtml" value="#{movieList.id}">
+                            <f:param name="id" value="#{movieList.id}"/>
+                        </h:link>
                     </h:column>
                     <h:column>
                         <f:facet name="header">#{msg.movieName}</f:facet>
